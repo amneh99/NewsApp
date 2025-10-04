@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yLz-Db-pD7">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Articles-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="NewsViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6d9-Js-vEN">
+                                <rect key="frame" x="0.0" y="119" width="393" height="683"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewsCell" id="L3A-he-ysr" customClass="NewsCell" customModule="NewsApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="153.33332824707031"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L3A-he-ysr" id="IyF-pv-wUl">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="153.33332824707031"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mpH-Xp-eWn">
+                                                    <rect key="frame" x="16" y="12" width="361" height="129.33333333333334"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LbW-MP-tlC">
+                                                            <rect key="frame" x="0.0" y="0.0" width="129.33333333333334" height="129.33333333333334"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="LbW-MP-tlC" secondAttribute="height" multiplier="1:1" id="gkX-ak-8fb"/>
+                                                                <constraint firstAttribute="height" constant="129.33333333333334" id="w0f-aE-gmx"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="6"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </imageView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="e1I-LH-iTn">
+                                                            <rect key="frame" x="137.33333333333337" y="30.666666666666657" width="223.66666666666663" height="68"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ukraine's President Zelensky to BBC: Blood money being paid for Russian oil" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8LB-sY-XE5">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="223.66666666666666" height="36"/>
+                                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
+                                                                    <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </label>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Njk-G5-Pbx">
+                                                                    <rect key="frame" x="0.0" y="48.000000000000007" width="223.66666666666666" height="19.999999999999993"/>
+                                                                    <subviews>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="7D6-Z2-zQv">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="95" height="20"/>
+                                                                            <subviews>
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NewsSourcePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="yV4-Dx-Qoq">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" constant="20" id="5i9-QC-DID"/>
+                                                                                        <constraint firstAttribute="width" secondItem="yV4-Dx-Qoq" secondAttribute="height" multiplier="1:1" id="m61-UD-JtK"/>
+                                                                                    </constraints>
+                                                                                </imageView>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BBC News" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXA-9b-sZ0">
+                                                                                    <rect key="frame" x="24" y="0.0" width="71" height="20"/>
+                                                                                    <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="14"/>
+                                                                                    <color key="textColor" name="BodyTextColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SET-j5-C5l">
+                                                                            <rect key="frame" x="102.99999999999997" y="9.6666666666666572" width="38" height="1"/>
+                                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="1" id="YZy-aO-97L"/>
+                                                                            </constraints>
+                                                                        </view>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="rtm-OD-rKu">
+                                                                            <rect key="frame" x="148.99999999999997" y="0.0" width="74.666666666666657" height="20"/>
+                                                                            <subviews>
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Clock" translatesAutoresizingMaskIntoConstraints="NO" id="rEl-7F-TAA">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                                    <color key="tintColor" name="BodyTextColor"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" secondItem="rEl-7F-TAA" secondAttribute="height" multiplier="1:1" id="n6I-HI-pgH"/>
+                                                                                        <constraint firstAttribute="width" constant="20" id="sat-yx-egn"/>
+                                                                                    </constraints>
+                                                                                </imageView>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14m ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmF-Jn-s6y">
+                                                                                    <rect key="frame" x="23.999999999999996" y="0.0" width="50.666666666666657" height="20"/>
+                                                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="13"/>
+                                                                                    <color key="textColor" name="BodyTextColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="mpH-Xp-eWn" secondAttribute="bottom" constant="12" id="dIk-5h-xRa"/>
+                                                <constraint firstItem="mpH-Xp-eWn" firstAttribute="top" secondItem="IyF-pv-wUl" secondAttribute="top" constant="12" id="erx-hd-UR7"/>
+                                                <constraint firstAttribute="trailing" secondItem="mpH-Xp-eWn" secondAttribute="trailing" constant="16" id="fYM-4G-INk"/>
+                                                <constraint firstItem="mpH-Xp-eWn" firstAttribute="leading" secondItem="IyF-pv-wUl" secondAttribute="leading" constant="16" id="ksv-Wg-jD3"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="newsImageView" destination="LbW-MP-tlC" id="UtC-b1-LJX"/>
+                                            <outlet property="sourceLabel" destination="RXA-9b-sZ0" id="HkZ-ri-srT"/>
+                                            <outlet property="timeAgoLabel" destination="jmF-Jn-s6y" id="31P-KW-MeV"/>
+                                            <outlet property="timeAgoStackView" destination="rtm-OD-rKu" id="giJ-dN-FPS"/>
+                                            <outlet property="titleLabel" destination="8LB-sY-XE5" id="lpf-Ik-sDU"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="1Ye-wu-HYr"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="wWI-WB-88a"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6d9-Js-vEN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="01v-x8-VOO"/>
+                            <constraint firstItem="6d9-Js-vEN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="ILk-5q-Lg8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6d9-Js-vEN" secondAttribute="trailing" id="LMu-uL-NM2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6d9-Js-vEN" secondAttribute="bottom" constant="16" id="gbb-Ic-P8X"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Articles" id="T6C-uk-c00"/>
+                    <connections>
+                        <outlet property="tableView" destination="6d9-Js-vEN" id="ULC-yG-Ndc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="955" y="-2"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8pX-aH-mII">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yLz-Db-pD7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Xaq-fJ-nHn">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xkn-kb-3gZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qkk-6Y-Dxw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139.69465648854961" y="-2.1126760563380285"/>
+        </scene>
+        <!--Article Details-->
+        <scene sceneID="K3o-pH-76W">
+            <objects>
+                <viewController storyboardIdentifier="NewsDetailsViewController" title="Article Details" id="vYZ-7w-iZS" customClass="NewsDetailsViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wHV-Oh-Q9t">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eTj-Tq-7iM">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="4Q3-Np-iQV">
+                                        <rect key="frame" x="16" y="78" width="361" height="506.33333333333326"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="HTs-7R-wHB">
+                                                <rect key="frame" x="0.0" y="0.0" width="361" height="50"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NewsSourcePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="sPe-pW-bDC">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="sPe-pW-bDC" secondAttribute="height" multiplier="1:1" id="1an-M2-JJA"/>
+                                                            <constraint firstAttribute="width" constant="50" id="O2j-FF-W2u"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="P5B-tx-67P">
+                                                        <rect key="frame" x="54" y="6.6666666666666679" width="307" height="36.666666666666657"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BBC News" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mht-0W-mXo">
+                                                                <rect key="frame" x="0.0" y="0.0" width="307" height="18"/>
+                                                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="16"/>
+                                                                <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14m ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6D-Ng-Snr">
+                                                                <rect key="frame" x="0.0" y="21.999999999999996" width="307" height="14.666666666666668"/>
+                                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="13"/>
+                                                                <color key="textColor" name="BodyTextColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xr4-Di-IKV">
+                                                <rect key="frame" x="0.0" y="72" width="361" height="250"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="250" id="USp-eV-uHN"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nNc-ah-iKn">
+                                                <rect key="frame" x="0.0" y="344" width="361" height="104.33333333333331"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Europe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MiL-rC-stw">
+                                                        <rect key="frame" x="0.0" y="0.0" width="361" height="15.666666666666666"/>
+                                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
+                                                        <color key="textColor" name="BodyTextColor"/>
+                                                        <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ukraine's President Zelensky to BBC: Blood money being paid for Russian oil" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZp-qh-fV5">
+                                                        <rect key="frame" x="0.0" y="23.666666666666693" width="361" height="80.666666666666686"/>
+                                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="24"/>
+                                                        <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ukraine's President Zelensky to BBC: Blood money being paid for Russian oil" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXK-xw-d8T">
+                                                <rect key="frame" x="0.0" y="470.33333333333331" width="361" height="36"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
+                                                <color key="textColor" name="BodyTextColor"/>
+                                                <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="4Q3-Np-iQV" secondAttribute="trailing" constant="16" id="6Od-xf-7ee"/>
+                                    <constraint firstItem="4Q3-Np-iQV" firstAttribute="centerX" secondItem="eTj-Tq-7iM" secondAttribute="centerX" id="7ZQ-Oo-sY6"/>
+                                    <constraint firstItem="4Q3-Np-iQV" firstAttribute="top" secondItem="eTj-Tq-7iM" secondAttribute="top" constant="16" id="Zat-a9-ata"/>
+                                    <constraint firstItem="4Q3-Np-iQV" firstAttribute="leading" secondItem="eTj-Tq-7iM" secondAttribute="leading" constant="16" id="dPG-QC-p0G"/>
+                                    <constraint firstAttribute="bottom" secondItem="4Q3-Np-iQV" secondAttribute="bottom" constant="16" id="rbc-UA-jf5"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="m6X-9d-Kil"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="eTj-Tq-7iM" secondAttribute="bottom" id="JmW-UX-252"/>
+                            <constraint firstAttribute="trailing" secondItem="eTj-Tq-7iM" secondAttribute="trailing" id="dOF-qc-aWj"/>
+                            <constraint firstItem="eTj-Tq-7iM" firstAttribute="top" secondItem="wHV-Oh-Q9t" secondAttribute="top" id="sQw-Yb-ThK"/>
+                            <constraint firstItem="eTj-Tq-7iM" firstAttribute="leading" secondItem="wHV-Oh-Q9t" secondAttribute="leading" id="zxt-Pe-jtN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Articles" id="9UQ-5l-ZAh"/>
+                    <connections>
+                        <outlet property="articleImageView" destination="Xr4-Di-IKV" id="6jo-c8-utG"/>
+                        <outlet property="authorLabel" destination="MiL-rC-stw" id="eRz-NX-l0f"/>
+                        <outlet property="descriptionLabel" destination="bXK-xw-d8T" id="O95-Br-aU1"/>
+                        <outlet property="sourceNameLabel" destination="mht-0W-mXo" id="Kvt-hh-S2O"/>
+                        <outlet property="timeAgoLabel" destination="Q6D-Ng-Snr" id="Sur-Ih-3g2"/>
+                        <outlet property="titleLabel" destination="LZp-qh-fV5" id="zkg-im-XZn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uoI-dZ-9aK" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1724" y="-2"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Clock" width="14" height="14"/>
+        <image name="NewsSourcePlaceholder" width="70" height="70"/>
+        <namedColor name="BodyTextColor">
+            <color red="0.30588235294117649" green="0.29411764705882354" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
