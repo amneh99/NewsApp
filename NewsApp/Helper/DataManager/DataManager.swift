@@ -108,11 +108,3 @@ extension DataManager {
         } catch {}
     }
 }
-
-final class MockDataManager: DataManaging {
-    var newsArticles: [Article]?
-    
-    init(newsArticles: [Article]? = nil) {
-        self.newsArticles = newsArticles
-    }
-}

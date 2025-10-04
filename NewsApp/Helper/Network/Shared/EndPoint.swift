@@ -51,20 +51,3 @@ enum BaseUrl {
 struct APIConfig {
     static let apiKey = "88abaf2428e94070a3679b45c44ba569"
 }
-
-final class MockNetworkManager: NetworkManaging {
-    var mockData: Data?
-    var mockError: Error?
-    
-    func fetch<T: Decodable>(from endpoint: Endpoint) async throws -> T {
-        if let error = mockError {
-            throw error
-        }
-        
-        guard let data = mockData else {
-            throw NetworkError.invalidResponse
-        }
-        
-        return try JSONDecoder().decode(T.self, from: data)
-    }
-}

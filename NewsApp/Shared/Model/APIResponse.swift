@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct APIResponse<T: Decodable>: Decodable {
+struct APIResponse<T: Codable>: Codable {
     let status: String
     let totalResults: Int?
     let articles: [T]? //normally would be data

@@ -14,9 +14,11 @@ class NewsViewModel {
     
     private var cancellables = Set<AnyCancellable>()
     var repository: NewsArticlesRepositoryProtocol
+    private var dataManager: DataManaging
     
-    init(repository: NewsArticlesRepositoryProtocol = NewsArticlesRepository()) {
+    init(repository: NewsArticlesRepositoryProtocol = NewsArticlesRepository(), dataManager: DataManaging = DataManager.shared) {
         self.repository = repository
+        self.dataManager = dataManager
         observeNetworkChanges()
     }
     
@@ -57,10 +59,10 @@ class NewsViewModel {
     
     func saveArticlesInCoreData() {
         guard !articles.isEmpty else { return }
-        DataManager.shared.newsArticles = articles
+        dataManager.newsArticles = articles
     }
     
     func getArticlesFromCoreData() {
-        articles = DataManager.shared.newsArticles ?? []
+        articles = dataManager.newsArticles ?? []
     }
 }

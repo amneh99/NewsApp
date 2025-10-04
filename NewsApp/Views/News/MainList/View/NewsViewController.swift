@@ -11,7 +11,7 @@ import Combine
 class NewsViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
-    let viewModel = NewsViewModel()
+    var viewModel = NewsViewModel()
     private var cancellables = Set<AnyCancellable>()
     private let refreshControl = UIRefreshControl()
     
@@ -40,7 +40,7 @@ class NewsViewController: UIViewController {
             .store(in: &cancellables)
     }
     
-    private func handleStateChange(_ state: ViewState) {
+    func handleStateChange(_ state: ViewState) {
         switch state {
         case .idle:
             break
