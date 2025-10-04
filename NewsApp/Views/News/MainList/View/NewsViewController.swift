@@ -93,9 +93,9 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        if let detailsVC = storyboard.instantiateViewController(withIdentifier: "NewsDetailsViewController") as? NewsDetailsViewController {
+        if let detailsVC = storyboard.instantiateViewController(withIdentifier: "NewsDetailsViewController") as? ArticleDetailsViewController {
             let article = viewModel.articles[indexPath.row]
-            let detailsVM = NewsDetailsViewModel(news: article)
+            let detailsVM = ArticleDetailsViewModel(article: article)
             detailsVC.viewModel = detailsVM
             navigationController?.pushViewController(detailsVC, animated: true)
         }

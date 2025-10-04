@@ -21,4 +21,8 @@ extension String {
         
         return relativeFormatter.localizedString(for: date, relativeTo: Date())
     }
+    
+    var nonEmpty: String? {
+            trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? nil : self
+        }
 }
