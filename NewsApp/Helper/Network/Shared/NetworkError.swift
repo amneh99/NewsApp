@@ -9,10 +9,11 @@ import Foundation
 
 enum NetworkError: Error {
     case invalidResponse
-    case decodingFailed
+    case decodingFailed(underlyingError: Error)
     case clientError(Int)
     case serverError(Int)
     case unknownError(Int)
+    case invalidURL
 }
 
 extension NetworkError: LocalizedError {
@@ -28,6 +29,8 @@ extension NetworkError: LocalizedError {
             return "Server error occurred. Status code: \(statusCode)"
         case .unknownError(let statusCode):
             return "An unknown error occurred. Status code: \(statusCode)"
+        case .invalidURL:
+            return "Invalid URL configuration."
         }
     }
 }

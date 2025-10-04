@@ -7,29 +7,27 @@
 
 import UIKit
 
-var vSpinner : UIView?
-
 extension UIViewController {
     func showLoading() {
-        let spinnerView = UIView.init(frame: self.view.bounds)
-        spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
-        let activityIndicator = UIActivityIndicatorView.init(style: .medium)
+        guard view.viewWithTag(ViewTag.spinner.rawValue) == nil else { return }
+        
+        let spinnerView = UIView(frame: view.bounds)
+        spinnerView.backgroundColor = UIColor(white: 0.5, alpha: 0.5)
+        spinnerView.tag = ViewTag.spinner.rawValue
+        spinnerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        let activityIndicator = UIActivityIndicatorView(style: .medium)
         activityIndicator.startAnimating()
         activityIndicator.center = spinnerView.center
+        activityIndicator.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin,
+                                              .flexibleTopMargin, .flexibleBottomMargin]
         
-        DispatchQueue.main.async {
-            spinnerView.addSubview(activityIndicator)
-            self.view.addSubview(spinnerView)
-        }
-        
-        vSpinner = spinnerView
+        spinnerView.addSubview(activityIndicator)
+        view.addSubview(spinnerView)
     }
     
     func hideLoading() {
-        DispatchQueue.main.async {
-            vSpinner?.removeFromSuperview()
-            vSpinner = nil
-        }
+        view.viewWithTag(ViewTag.spinner.rawValue)?.removeFromSuperview()
     }
     
     func showErrorAlert(message: String, title: String = "Error") {
@@ -39,3 +37,6 @@ extension UIViewController {
     }
 }
 
+private enum ViewTag: Int {
+    case spinner = 999999
+}

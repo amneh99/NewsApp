@@ -1,5 +1,5 @@
 //
-//  NewsCell.swift
+//  NewsArticleCell.swift
 //  NewsApp
 //
 //  Created by Amneh Shalabyeh on 10/2/25.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewsCell: UITableViewCell {
+class NewsArticleCell: UITableViewCell {
     @IBOutlet var newsImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var sourceLabel: UILabel!

@@ -28,9 +28,9 @@ enum TableViewState {
     case empty
     
     var message: String {
-           switch self {
-           case .normal: return ""
-           case .empty: return "No results available"
-           }
-       }
+        switch self {
+        case .normal: return ""
+        case .empty: return "No results available"
+        }
+    }
 }

@@ -6,20 +6,22 @@
 //
 
 import UIKit
-//import Combine
+import Combine
 
 class NewsViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     let viewModel = NewsViewModel()
+    private var cancellables = Set<AnyCancellable>()
     private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupRefreshControl()
+        bindViewModel()
         Task {
-            await getTopHeadlines()
+            await fetchHeadlines()
         }
     }
     
@@ -29,27 +31,45 @@ class NewsViewController: UIViewController {
         tableView.refreshControl = refreshControl
     }
     
-    @objc private func refreshData() {
-        Task {
-            await getTopHeadlines()
+    private func bindViewModel() {
+        viewModel.$state
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] state in
+                self?.handleStateChange(state)
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func handleStateChange(_ state: ViewState) {
+        switch state {
+        case .idle:
+            break
+        case .loading:
+            if !refreshControl.isRefreshing {
+                showLoading()
+            }
+        case .loaded:
+            hideLoading()
+            refreshControl.endRefreshing()
+            tableView.reloadData()
+            tableView.setBackground(state: viewModel.articles.isEmpty ? .empty : .normal)
+        case .error(let error):
+            hideLoading()
+            refreshControl.endRefreshing()
+            showErrorAlert(message: error.localizedDescription)
+            tableView.setBackground(state: viewModel.articles.isEmpty ? .empty : .normal)
         }
     }
     
-    func getTopHeadlines() async {
-        if !refreshControl.isRefreshing { showLoading() }
-        await viewModel.getTopHeadlines()
-        if !refreshControl.isRefreshing { hideLoading() }
-        
-        if let errorMsg = viewModel.error?.errorDescription {
-            showErrorAlert(message: errorMsg)
-        } else {
-            tableView.reloadData()
+    func fetchHeadlines() async {
+        Task {
+            await viewModel.fetchTopHeadlines()
         }
-        
-        tableView.setBackground(state: viewModel.articles.isEmpty ? .empty : .normal)
-        
-        if refreshControl.isRefreshing {
-            refreshControl.endRefreshing()
+    }
+    
+    @objc private func refreshData() {
+        Task {
+            await fetchHeadlines()
         }
     }
 }
@@ -61,7 +81,9 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsArticleCell", for: indexPath) as? NewsArticleCell else {
+            return UITableViewCell()
+        }
         
         let cellViewModel = NewsCellViewModel(article: viewModel.articles[indexPath.row])
         cell.configure(with: cellViewModel)

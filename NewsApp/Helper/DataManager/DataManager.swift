@@ -12,7 +12,11 @@ enum DataManagerKey {
     static let newsArticlesEntity = "NewsArticlesEntity"
 }
 
-class DataManager {
+protocol DataManaging {
+    var newsArticles: [Article]? { get set }
+}
+
+class DataManager: DataManaging {
     
     let container: NSPersistentContainer
     static let shared = DataManager()
@@ -102,5 +106,13 @@ extension DataManager {
             results.forEach{ managedContext.delete($0 as! NSManagedObject)}
             try managedContext.save()
         } catch {}
+    }
+}
+
+final class MockDataManager: DataManaging {
+    var newsArticles: [Article]?
+    
+    init(newsArticles: [Article]? = nil) {
+        self.newsArticles = newsArticles
     }
 }

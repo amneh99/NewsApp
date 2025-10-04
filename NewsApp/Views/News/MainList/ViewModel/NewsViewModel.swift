@@ -9,18 +9,18 @@ import Foundation
 import Combine
 
 class NewsViewModel {
+    @Published private(set) var state: ViewState = .idle
     var articles: [Article] = []
-    var error: NetworkError?
     
     private var cancellables = Set<AnyCancellable>()
-    var newsRepository: NewsRepositoryProtocol
+    var repository: NewsArticlesRepositoryProtocol
     
-    init() {
-        newsRepository = NewsRepository()
-        addNetworkObserver()
+    init(repository: NewsArticlesRepositoryProtocol = NewsArticlesRepository()) {
+        self.repository = repository
+        observeNetworkChanges()
     }
     
-    func addNetworkObserver() {
+    func observeNetworkChanges() {
         NetworkMonitor.shared.$isConnected
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isConnected in
@@ -34,24 +34,24 @@ class NewsViewModel {
             .store(in: &cancellables)
     }
     
-    func getTopHeadlines() async {
-        if NetworkMonitor.shared.isConnected {
-            await fetchTopHeadlines()
-        } else {
-            getArticlesFromCoreData()
-        }
-    }
-    
-    private func fetchTopHeadlines() async {
+    func fetchTopHeadlines() async {
+        state = .loading
         do {
-            let articles = try await newsRepository.getTopHeadlines()
-            self.articles = articles
-            saveArticlesInCoreData()
-            error = nil
-        } catch let error as NetworkError {
-            self.error = error
+            let fetchedArticles = try await repository.fetchTopHeadlines()
+            await MainActor.run {
+                self.articles = fetchedArticles
+                saveArticlesInCoreData()
+                self.state = .loaded
+            }
         } catch {
-            self.error = .unknownError(0)
+            await MainActor.run {
+                self.getArticlesFromCoreData()
+                if self.articles.isEmpty {
+                    self.state = .error(error)
+                } else {
+                    self.state = .loaded
+                }
+            }
         }
     }
     

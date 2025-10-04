@@ -33,7 +33,7 @@ final class NetworkManager: NetworkManaging {
             let decoder = JSONDecoder()
             return try decoder.decode(T.self, from: data)
         } catch {
-            throw NetworkError.decodingFailed
+            throw NetworkError.decodingFailed(underlyingError: error)
         }
     }
     
